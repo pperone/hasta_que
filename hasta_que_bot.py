@@ -6,5 +6,11 @@ auth = tweepy.AppAuthHandler("fwBcUpUv0O193Pe5O33qBlBLq",
 
 api = tweepy.API(auth)
 
-for tweet in tweepy.Cursor(api.search, q='tweepy').items(10):
-    print(tweet.text)'
+myStreamListener = MyStreamListener()
+myStream = tweepy.Stream(auth = api.auth, listener=myStreamListener)
+myStream.filter(track=['python'])
+
+class MyStreamListener(tweepy.StreamListener):
+
+    def on_status(self, status):
+        print(status.text)
