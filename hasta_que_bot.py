@@ -6,6 +6,7 @@ auth = tweepy.AppAuthHandler("fwBcUpUv0O193Pe5O33qBlBLq",
 
 api = tweepy.API(auth)
 
+# Setting up the streamer to listen to mentions
 myStreamListener = MyStreamListener()
 myStream = tweepy.Stream(auth = api.auth, listener=myStreamListener)
 myStream.filter(track=['python'])
