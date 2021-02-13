@@ -11,6 +11,7 @@ myStreamListener = MyStreamListener()
 myStream = tweepy.Stream(auth = api.auth, listener=myStreamListener)
 myStream.filter(track=['python'])
 
+# Custom class for the modified stream listener
 class MyStreamListener(tweepy.StreamListener):
 
     def on_status(self, status):
