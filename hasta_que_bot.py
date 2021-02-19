@@ -16,11 +16,12 @@ class StdOutListener(StreamListener):
  
     def on_status(self, status):
         if 'RT' not in status.text:
-        # Prints the text of the tweet
+            # Prints the text of the tweet
             print('Tweet text: ' + status.text)
             s = status.author.screen_name
             print(s)
             api.create_favorite(status.id)
+
             try:
                 api.retweet(status.id)
                 message = '@' + s + ' You tweeted with my hashtag!'
