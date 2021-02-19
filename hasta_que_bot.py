@@ -37,11 +37,11 @@ class StdOutListener(StreamListener):
  
     def on_error(self, status_code):
         print('Got an error with status code: ' + str(status_code))
-        return True # To continue listening
+        return True
  
     def on_timeout(self):
         print('Timeout...')
-        return True # To continue listening
+        return True
  
 if __name__ == '__main__':
     listener = StdOutListener()
